@@ -10,7 +10,7 @@ export default function HeroSlider(){
   ]
 
   return (
-    <div className="my-6">
+    <div className="mb-20">
       <Swiper spaceBetween={20} slidesPerView={1} autoplay={{delay:4500}} loop>
         {slides.map((s, i)=> (
           <SwiperSlide key={i}>

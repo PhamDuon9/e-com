@@ -10,6 +10,8 @@ export default async function Home(){
 
   const featured = products.filter((p:any)=> p.featured).slice(0,4)
   const newArrivals = products.filter((p:any)=> p.newArrival).slice(0,4)
+  console.log(featured)
+  console.log(newArrivals)
 
   return (
     <div className="py-6">

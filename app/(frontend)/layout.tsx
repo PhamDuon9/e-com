@@ -1,4 +1,3 @@
-import '../globals.css'
 import Header from '../../components/Header'
 
 export default function FrontendLayout({
@@ -7,12 +6,9 @@ export default function FrontendLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Header />
-
-        {children}
-      </body>
-    </html>
+    <>
+      <Header />
+      <main>{children}</main>
+    </>
   )
 }
