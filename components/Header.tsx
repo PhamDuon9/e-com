@@ -4,33 +4,35 @@ import Image from 'next/image'
 export default function Header(){
   return (
     <header className="sticky top-0 z-40 bg-white backdrop-blur-sm border-b border-gray-200">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-2xl bg-red-600 flex items-center justify-center text-white font-bold">SL</div>
+      <div className="container mx-auto px-8 py-4 grid grid-cols-3 items-center">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center">
+            <Image src="/images/logo.png" alt="Site logo" width={100} height={100} className="object-contain" />
             <div className="hidden sm:block">
-              <div className="text-lg font-bold">Thế Giới SportLux</div>
+              <div className="text-lg font-bold">Thế giới SportLux</div>
               <div className="text-xs text-gray-500">Premium Badminton Gear</div>
             </div>
           </Link>
         </div>
 
-        <nav className="hidden md:flex gap-6 font-medium">
-          <Link href="/">Trang chủ</Link>
-          <Link href="/products">Sản phẩm</Link>
-          <Link href="/news">Tin tức</Link>
-          <Link href="/about">Giới thiệu</Link>
-          <Link href="/contact">Liên hệ</Link>
+        <nav className="hidden md:flex gap-8 font-medium justify-center items-center">
+          <Link href="/" className="hover:text-gray-800 whitespace-nowrap">Trang chủ</Link>
+
+          <div className="relative group inline-block">
+            <Link href="/products" className="hover:text-gray-800 whitespace-nowrap py-2 inline-block">Sản phẩm</Link>
+            <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg rounded-md py-2 min-w-[180px] z-50">
+              <Link href="/products/category/vot-cau-long" className="block px-4 py-2 text-sm hover:bg-gray-100">Vợt cầu lông</Link>
+              <Link href="/products/category/vot-pickleball" className="block px-4 py-2 text-sm hover:bg-gray-100">Vợt pickle ball</Link>
+              <Link href="/products/category/phu-kien" className="block px-4 py-2 text-sm hover:bg-gray-100">Phụ kiện</Link>
+            </div>
+          </div>
+
+          <Link href="/news" className="hover:text-gray-800 whitespace-nowrap">Tin tức</Link>
+          <Link href="/about" className="hover:text-gray-800 whitespace-nowrap">Giới thiệu</Link>
+          <Link href="/contact" className="hover:text-gray-800 whitespace-nowrap">Liên hệ</Link>
         </nav>
 
-        <div className="flex items-center gap-4">
-          <button aria-label="search" className="p-2 rounded-lg hover:bg-gray-100">🔍</button>
-          <button aria-label="account" className="p-2 rounded-lg hover:bg-gray-100">👤</button>
-          <button aria-label="cart" className="relative p-2 rounded-lg hover:bg-gray-100">
-            🛒
-            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full px-1">2</span>
-          </button>
-        </div>
+        <div />
       </div>
     </header>
   )

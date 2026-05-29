@@ -18,6 +18,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "incremental": true,
     "plugins": [
       {
@@ -31,7 +32,7 @@
     "**/*.tsx",
     "**/*.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "app/page.tsx.bk"  ],
   "exclude": [
     "node_modules"
   ]

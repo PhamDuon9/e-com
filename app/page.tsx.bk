@@ -10,8 +10,6 @@ export default async function Home(){
 
   const featured = products.filter((p:any)=> p.featured).slice(0,4)
   const newArrivals = products.filter((p:any)=> p.newArrival).slice(0,4)
-  console.log(featured)
-  console.log(newArrivals)
 
   return (
     <div className="py-6">
@@ -28,7 +26,7 @@ export default async function Home(){
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featured.map((p:any)=> (
-            <ProductCard key={p._id} title={p.title} image={urlFor(p.thumbnail)} price={p.price} oldPrice={p.oldPrice} shopeeLink={p.shopeeLink} />
+            <ProductCard key={p._id} slug={p.slug.current} title={p.title} image={urlFor(p.thumbnail)} price={p.price} oldPrice={p.oldPrice} shopeeLink={p.shopeeLink} />
           ))}
         </div>
       </section>
@@ -52,7 +50,7 @@ export default async function Home(){
         <h2 className="text-2xl font-bold mb-4">Hàng mới về</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newArrivals.map((p:any)=> (
-            <ProductCard key={p._id} title={p.title} image={urlFor(p.thumbnail)} price={p.price} oldPrice={p.oldPrice} shopeeLink={p.shopeeLink} />
+            <ProductCard key={p._id} slug={p.slug.current} title={p.title} image={urlFor(p.thumbnail)} price={p.price} oldPrice={p.oldPrice} shopeeLink={p.shopeeLink} />
           ))}
         </div>
       </section>
@@ -73,11 +71,11 @@ export default async function Home(){
         </div>
       </section>
 
-      <section className="max-w-screen-xl mx-auto px-4 mt-10 mb-16">
+      <section className="max-w-screen-xl mx-auto px-4 mt-8 mb-16">
         <h2 className="text-2xl font-bold mb-6">Khách hàng nói về chúng tôi</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="text-gray-700">"Shop tư vấn nhiệt tình, giao hàng nhanh, vợt chính hãng 100%"</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="bg-white p-6 rounded-xl shadow h-full flex flex-col justify-between">
+            <p className="text-gray-700 mb-4">"Shop tư vấn nhiệt tình, giao hàng nhanh, vợt chính hãng 100%"</p>
             <div className="mt-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gray-100"></div>
               <div>
@@ -86,8 +84,8 @@ export default async function Home(){
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="text-gray-700">"Sản phẩm chất lượng, giá hợp lý. Đóng gói cẩn thận."</p>
+          <div className="bg-white p-6 rounded-xl shadow h-full flex flex-col justify-between">
+            <p className="text-gray-700 mb-4">"Sản phẩm chất lượng, giá hợp lý. Đóng gói cẩn thận."</p>
             <div className="mt-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gray-100"></div>
               <div>
@@ -96,8 +94,8 @@ export default async function Home(){
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="text-gray-700">"Mua giày ở đây rất ưng, đi êm và bám sàn tốt."</p>
+          <div className="bg-white p-6 rounded-xl shadow h-full flex flex-col justify-between">
+            <p className="text-gray-700 mb-4">"Mua giày ở đây rất ưng, đi êm và bám sàn tốt."</p>
             <div className="mt-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gray-100"></div>
               <div>

@@ -21,3 +21,7 @@ declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.svg';
 
+// Allow importing Swiper CSS side-effect modules
+declare module 'swiper/css';
+declare module 'swiper/css/*';
+

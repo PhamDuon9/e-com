@@ -58,7 +58,9 @@ export async function getProductBySlug(slug: string) {
     description,
     specs,
     "category": category->name,
-    "brand": brand->name
+    "categorySlug": category->slug.current,
+    "brand": brand->name,
+    "brandSlug": brand->slug.current
   }`
 
   try {
@@ -82,6 +84,37 @@ export async function getPosts() {
     return await sanityClient.fetch(query)
   } catch (err) {
     console.warn('Sanity getPosts failed:', err)
+    return []
+  }
+}
+
+export async function getRelatedProducts(
+  category: string,
+  currentSlug: string
+) {
+  const query = `
+    *[
+      _type == "product" &&
+      category->name == $category &&
+      slug.current != $currentSlug
+    ][0...4]{
+      _id,
+      title,
+      slug,
+      price,
+      oldPrice,
+      rating,
+      thumbnail
+    }
+  `
+
+  try {
+    return await sanityClient.fetch(query, {
+      category,
+      currentSlug,
+    })
+  } catch (err) {
+    console.warn('Sanity getRelatedProducts failed:', err)
     return []
   }
 }

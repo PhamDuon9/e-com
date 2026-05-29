@@ -49,7 +49,7 @@ export default function CategoryIcons() {
                 justify-center
                 transition-all
                 duration-300
-                group-hover:scale-110
+                group-hover:scale-150
               ">
                 <Image
                   src={it.icon}
